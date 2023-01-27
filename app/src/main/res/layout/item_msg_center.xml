@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.myapplication.view.SlideItemView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/slide"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@mipmap/ic_bg_msg_item">
+
+        <ImageView
+            android:id="@+id/img_select"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="32dp"
+            android:src="@drawable/ic_select_check_box"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/image_item"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="25dp"
+            android:layout_toEndOf="@id/img_select" />
+
+        <TextView
+            android:id="@+id/tv_title_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="28dp"
+            android:layout_toEndOf="@id/image_item"
+            android:text="车辆碰撞"
+            android:textColor="#E6FFFFFF"
+            android:textSize="28sp" />
+
+        <TextView
+            android:id="@+id/tv_content_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_title_item"
+            android:layout_alignStart="@id/tv_title_item"
+            android:layout_marginTop="12dp"
+            android:text="您的爱车“xx”故障，请及时联系售后处理。"
+            android:textColor="#FFFFFFFF"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/tv_data_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="48dp"
+            android:text="17:32"
+            android:textColor="#E6FFFFFF"
+            android:textSize="24sp" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/img_delete"
+        android:layout_width="240dp"
+        android:layout_height="120dp"
+        android:background="@mipmap/ic_btn_delete_bg"
+        android:src="@mipmap/ic_btn_delete"></ImageView>
+
+</com.example.myapplication.view.SlideItemView>

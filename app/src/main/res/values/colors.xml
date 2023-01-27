@@ -6,5 +6,15 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
+
+    <color name="tv_content_item">#FFFFFFFF</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="tv_title_item">#E6FFFFFF</color>
+    <color name="tv_checked">#FFFFFFFF</color>
+    <!--弹窗的颜色-->
+    <color name="color_FFE87825">#FFFFFFFF</color>
+
+    <color name="tv_delete_nothing">#4DFFFFFF</color>
+    <color name="tv_delete_in">#FFFFFFFF</color>
+
 </resources>
