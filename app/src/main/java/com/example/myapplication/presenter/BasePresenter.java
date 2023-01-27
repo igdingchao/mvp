@@ -2,9 +2,6 @@ package com.example.myapplication.presenter;
 
 import com.example.myapplication.contact.MvpProxyImpl;
 
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
-
 public abstract class BasePresenter<V, M> implements IBasePresenter<V> {
 
     private static final String TAG = BasePresenter.class.getSimpleName();

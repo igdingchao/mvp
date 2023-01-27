@@ -1,6 +1,5 @@
 package com.example.myapplication.presenter;
 
-import com.example.myapplication.view.MainActivity;
 import com.example.myapplication.model.MainModel;
 import com.example.myapplication.contact.IMainContact;
 

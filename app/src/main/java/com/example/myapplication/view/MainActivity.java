@@ -1,8 +1,8 @@
 package com.example.myapplication.view;
+
 import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import androidx.fragment.app.FragmentTransaction;
@@ -12,10 +12,10 @@ import com.example.myapplication.R;
 import com.example.myapplication.SecondActivity;
 import com.example.myapplication.contact.IMainContact;
 import com.example.myapplication.fragment.MainFragment;
-import com.example.myapplication.model.MainModel;
 import com.example.myapplication.presenter.MainPresenter;
 
-//todo 加入一个banner和recycleview的网络请求进来试试
+//todo 加入一个banner和recycleview的网络请求进来试试，而且还需要结合代码模板，来自动生成我们所需要的mvp
+// 代码模板记得写在Android进阶的笔记里面
 public class MainActivity extends BaseActivity<MainPresenter> implements View.OnClickListener, IMainContact.IMainView {
 
     private static final String TAG = MainActivity.class.getSimpleName();
