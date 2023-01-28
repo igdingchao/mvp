@@ -1,6 +1,4 @@
-package com.example.myapplication.presenter;
-
-import com.example.myapplication.contact.MvpProxyImpl;
+package com.example.myapplication.base;
 
 public abstract class BasePresenter<V, M> implements IBasePresenter<V> {
 

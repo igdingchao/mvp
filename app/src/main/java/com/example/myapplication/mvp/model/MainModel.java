@@ -1,6 +1,6 @@
-package com.example.myapplication.model;
+package com.example.myapplication.mvp.model;
 
-import com.example.myapplication.contact.IMainContact;
+import com.example.myapplication.mvp.contact.IMainContact;
 
 public class MainModel implements IMainContact.IMainModel {
 

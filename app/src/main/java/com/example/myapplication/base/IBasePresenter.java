@@ -1,4 +1,4 @@
-package com.example.myapplication.presenter;
+package com.example.myapplication.base;
 
 public interface IBasePresenter<V> {
 

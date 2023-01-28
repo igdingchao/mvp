@@ -1,18 +1,13 @@
 package com.example.myapplication.adapter;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.myapplication.R;
+import com.example.myapplication.base.BaseAdapter;
 import com.example.myapplication.bean.MsgCenterBean;
 import com.example.myapplication.view.SlideItemView;
 
@@ -20,37 +15,44 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
-public class MsgCenterAdapter extends RecyclerView.Adapter<MsgCenterAdapter.ViewHolder> {
-
-    List<MsgCenterBean> mArrayList;
-    Context mContext;
+public class MsgCenterAdapter extends BaseAdapter<MsgCenterBean> {
     int mCheckNumber = 0;
-    public SlideItemView mSlideItemView;
     private boolean mIsEnableEdit;
+    public SlideItemView mSlideItemView;
+
+    private ImageView mImgSelect;
+    private ImageView mImg;
+    private TextView mTvTitle;
+    private TextView mDataTime;
+    private TextView mTvContent;
+    private ImageView mImgDelete;
 
     public MsgCenterAdapter(Context context, List<MsgCenterBean> arrayList) {
-        mContext = context;
-        mArrayList = arrayList;
+        super(context, arrayList);
     }
 
-    @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(mContext).inflate(R.layout.item_msg_center, parent, false);
-        return new ViewHolder(view);
+    protected int initView() {
+        return R.layout.item_msg_center;
     }
 
-    @SuppressLint("RecyclerView")
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.mImgSelect.setTag(position);
-        holder.mImgSelect.setVisibility(isEnableEdit() ? View.VISIBLE : View.GONE);
-        holder.mImgSelect.setSelected(mArrayList.get(position).getIsSelected());
+    protected void bindHolder(BaseHolder holder, MsgCenterBean msgCenterBean, int position) {
+        mImgSelect = holder.findViewById(R.id.img_select);
+        mImg = holder.findViewById(R.id.image_item);
+        mTvTitle = holder.findViewById(R.id.tv_title_item);
+        mTvContent = holder.findViewById(R.id.tv_content_item);
+        mDataTime = holder.findViewById(R.id.tv_data_time);
+        mImgDelete = holder.findViewById(R.id.img_delete);
 
-        holder.mTvContent.setText(mArrayList.get(position).getContent());
-        holder.mImg.setImageResource(mArrayList.get(position).getIcon());
-        holder.mTvTitle.setText(mArrayList.get(position).getTitle());
-        holder.mDataTime.setText("" + mArrayList.get(position).getTime());
+        mImgSelect.setTag(position);
+        mImgSelect.setVisibility(isEnableEdit() ? View.VISIBLE : View.GONE);
+        mImgSelect.setSelected(msgCenterBean.getIsSelected());
+
+        mTvContent.setText(msgCenterBean.getContent());
+        mImg.setImageResource(msgCenterBean.getIcon());
+        mTvTitle.setText(msgCenterBean.getTitle());
+        mDataTime.setText("" + msgCenterBean.getTime());
 
         SlideItemView slideItemView = (SlideItemView) holder.itemView;
         slideItemView.setOnStateChangeListener(new SlideItemView.OnStateChangeListener() {
@@ -74,37 +76,35 @@ public class MsgCenterAdapter extends RecyclerView.Adapter<MsgCenterAdapter.View
             }
         });
 
-        holder.mImgDelete.setOnClickListener(v -> {
+        mImgDelete.setOnClickListener(v -> {
 
             if (mCheckNumber > 0) {
-                MsgCenterBean msgCenterBean = mArrayList.get(position);
                 if (msgCenterBean.getIsSelected()) {
                     mCheckNumber--;
                 }
             }
             notifyItemRemoved(position);
-            mArrayList.remove(position);
+            datas.remove(position);
             notifyItemRangeChanged(position, getItemCount() - position);
             if (mSlideItemView != null) {
                 mSlideItemView.closeDelItem();
             }
-            mTotalCheck.total(mCheckNumber, mCheckNumber == mArrayList.size(), mArrayList.size());
+            mTotalCheck.total(mCheckNumber, mCheckNumber == datas.size(), datas.size());
         });
 
-        holder.mImgSelect.setOnClickListener(view -> {
-            if (!mArrayList.get(position).getIsSelected()) {
-                mArrayList.get(position).setIsSelected(true);
+        mImgSelect.setOnClickListener(view -> {
+            if (!datas.get(position).getIsSelected()) {
+                datas.get(position).setIsSelected(true);
                 mCheckNumber++;
             } else {
-                mArrayList.get(position).setIsSelected(false);
+                datas.get(position).setIsSelected(false);
                 mCheckNumber--;
             }
-            mTotalCheck.total(mCheckNumber, mCheckNumber == mArrayList.size(), mArrayList.size());
+            mTotalCheck.total(mCheckNumber, mCheckNumber == datas.size(), datas.size());
 //                notifyDataSetChanged();这样会有问题，会造成勾选错乱，如果只是改变某一个，就不需要把所有的都进行刷新。
             notifyItemChanged(position);
 
         });
-
     }
 
     TotalCheck mTotalCheck;
@@ -127,30 +127,29 @@ public class MsgCenterAdapter extends RecyclerView.Adapter<MsgCenterAdapter.View
             mSlideItemView.closeDelItem();
         }
 
-        for (int i = 0; i < mArrayList.size(); i++) {
-            if (isAllCheck && mArrayList.get(i).getIsSelected() != isAllCheck) {
-                mArrayList.get(i).setIsSelected(isAllCheck);
-            } else if (mArrayList.get(i).getIsSelected()) {
-                mArrayList.get(i).setIsSelected(isAllCheck);
+        for (int i = 0; i < datas.size(); i++) {
+            if (isAllCheck && datas.get(i).getIsSelected() != isAllCheck) {
+                datas.get(i).setIsSelected(isAllCheck);
+            } else if (datas.get(i).getIsSelected()) {
+                datas.get(i).setIsSelected(isAllCheck);
             }
         }
 
         if (isAllCheck) {
-            mCheckNumber = mArrayList.size();
+            mCheckNumber = datas.size();
         } else {
             mCheckNumber = 0;
         }
-        mTotalCheck.total(mCheckNumber, mCheckNumber == mArrayList.size(), mArrayList.size());
+        mTotalCheck.total(mCheckNumber, mCheckNumber == datas.size(), datas.size());
         notifyDataSetChanged();
     }
-
 
     public void deleteData() {
 
         if (mSlideItemView != null) {
             mSlideItemView.closeDelItem();
         }
-        Iterator<MsgCenterBean> iterator = mArrayList.iterator();
+        Iterator<MsgCenterBean> iterator = datas.iterator();
         while (iterator.hasNext()) {
             MsgCenterBean next = iterator.next();
             boolean check = next.getIsSelected();
@@ -159,23 +158,25 @@ public class MsgCenterAdapter extends RecyclerView.Adapter<MsgCenterAdapter.View
                 mCheckNumber--;
             }
         }
-        mTotalCheck.total(mCheckNumber, mCheckNumber == mArrayList.size(), mArrayList.size());
+        mTotalCheck.total(mCheckNumber, mCheckNumber == datas.size(), datas.size());
         //todo，这里只需要删除某一个，更新的是后面的，而不是所有的，把notify系列的代码，都找一下
         notifyDataSetChanged();
     }
+
 
     public void addData(MsgCenterBean msgCenterBean) {
         Log.i("TAG", "addData: " + msgCenterBean.getTitle());
         if (mSlideItemView != null) {
             mSlideItemView.closeDelItem();
         }
-        mArrayList.add(msgCenterBean);
-        Collections.sort(mArrayList);
+        datas.add(msgCenterBean);
+        Collections.sort(datas);
         notifyDataSetChanged();
     }
 
+
     public void deleteAllData() {
-        Iterator<MsgCenterBean> iterator = mArrayList.iterator();
+        Iterator<MsgCenterBean> iterator = datas.iterator();
         while (iterator.hasNext()) {
             MsgCenterBean next = iterator.next();
             iterator.remove();
@@ -183,37 +184,9 @@ public class MsgCenterAdapter extends RecyclerView.Adapter<MsgCenterAdapter.View
         mCheckNumber = 0;
     }
 
+
     public interface TotalCheck {
         void total(int number, boolean isSelectAll, int arraySize);
     }
 
-    @Override
-    public int getItemCount() {
-        return mArrayList.size();
-    }
-
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-        private final ImageView mImgSelect;
-        private final ImageView mImg;
-        private final TextView mTvTitle;
-        private final TextView mDataTime;
-
-        private final TextView mTvContent;
-        private final ImageView mImgDelete;
-
-        public ViewHolder(@NonNull View itemView) {
-            super(itemView);
-            mImgSelect = itemView.findViewById(R.id.img_select);
-            mImg = itemView.findViewById(R.id.image_item);
-            mTvTitle = itemView.findViewById(R.id.tv_title_item);
-            mTvContent = itemView.findViewById(R.id.tv_content_item);
-            mDataTime = itemView.findViewById(R.id.tv_data_time);
-            mImgDelete = itemView.findViewById(R.id.img_delete);
-        }
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return position;
-    }
 }

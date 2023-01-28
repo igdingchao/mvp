@@ -1,7 +1,8 @@
-package com.example.myapplication.presenter;
+package com.example.myapplication.mvp.presenter;
 
-import com.example.myapplication.model.MainModel;
-import com.example.myapplication.contact.IMainContact;
+import com.example.myapplication.mvp.model.MainModel;
+import com.example.myapplication.mvp.contact.IMainContact;
+import com.example.myapplication.base.BasePresenter;
 
 public class MainPresenter extends BasePresenter<IMainContact.IMainView, MainModel> implements IMainContact.IMainPresenter {
 

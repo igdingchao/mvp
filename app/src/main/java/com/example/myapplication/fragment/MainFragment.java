@@ -10,8 +10,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.myapplication.R;
-import com.example.myapplication.contact.IMainContact;
-import com.example.myapplication.presenter.MainPresenter;
+import com.example.myapplication.base.BaseFragment;
+import com.example.myapplication.mvp.contact.IMainContact;
+import com.example.myapplication.mvp.presenter.MainPresenter;
 
 public class MainFragment extends BaseFragment<MainPresenter> implements View.OnClickListener, IMainContact.IMainView {
 

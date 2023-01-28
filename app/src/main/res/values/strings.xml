@@ -1,81 +1,11 @@
 <resources>
     <string name="app_name">消息</string>
-
-    <string name="multiple_calendar_reminder">你有%d个日程，还有10分钟开始，需要帮你展示详情吗</string>
-    <string name="ten_minutes_reminder">还有10分钟开始，%s</string>
-    <string name="on_time_reminder">你安排的%s时间到了</string>
-    <string name="calendar_hint">你有%d个日程</string>
-    <string name="tips_have_a_new_calendar_need_to_check">您有一个新的日程提醒，是否查看？</string>
-    <string name="click_to_check">点击查看</string>
-    <string name="view_detail">查看详情</string>
-    <string name="car_time">上车</string>
-    <string name="select_all">全选</string>
-    <string name="cancel_select_all">取消全选</string>
-    <string name="delete">删除</string>
-    <string name="delete_with_count">删除(%s)</string>
-    <string name="tips_delete_all_message">是否删除消息内容</string>
-    <string name="no_message">暂无消息</string>
-    <string name="no_calendar">暂无日程</string>
-    <string name="calendar_message">日程消息</string>
-    <string name="network_error_tips">当前网络信号不稳定，请稍后重试</string>
-
-    <string name="search_calendar">日程查询</string>
-
-    <string name="navigate">导航</string>
-    <string name="check">查看</string>
-    <string name="confirm">确定</string>
-    <string name="cancel">取消</string>
-
-
-    <string name="message_center">消息中心</string>
-    <string name="tv_edit">编辑</string>
-    <string name="tv_cancel_edit">取消编辑</string>
-    <string name="tv_vehicle_breakdown">车辆碰撞</string>
-    <string name="tv_low_oil">低油量提醒</string>
-    <string name="tv_low_battery">低电量提醒</string>
-    <string name="tv_schedule_reminder">日程提醒</string>
-    <string name="tv_tencent_meeting">腾讯会议日程提醒</string>
-    <string name="tv_send_to_car">SendToCar消息</string>
-    <string name="tv_weather">天气提醒</string>
-    <string name="traffic_buy_success">流量购买成功</string>
-    <string name="tv_ota_update">系统升级</string>
-    <string name="tv_discount_oil">优惠加油</string>
-
     <string name="tv_select_all">全选</string>
     <string name="tv_cancel_select_all">取消全选</string>
     <string name="tv_delete">删除</string>
     <string name="tv_delete_with_count">删除(%s)</string>
-    <string name="tv_delete_all">是否删除全部消息内容?</string>
-    <string name="tv_confirm">确定</string>
-    <string name="tv_cancel">取消</string>
-
-    <string name="no_msg">还没有任何消息哦</string>
-    <string name="dialog_know">我知道了(%ds)</string>
-    <string name="content">可行驶里程：#d公里</string>
-    <string name="cancle">取消(%ds)</string>
-    <string name="calendar_fail">抱歉，日程创建失败</string>
-    <string name="notime_nothing">请问在什么时候提醒您做什么？</string>
-    <string name="notime_havething">请问什么时候提醒您？</string>
-    <string name="havetime_nothing">请问提醒你什么事情？</string>
-    <string name="calendar_success">为你设定%s提醒，将在%s提醒您</string>
-    <string name="havething_changetime">这个时间已创建了提醒事件，换个时间吧</string>
-    <string name="null_time">对不起，当前时间不存在</string><!--todo 时间不能超过一个范围，超出了就播报 时间不存在，不能定今天之前的-->
-    <string name="null_time_when_hint">对不起，当前时间不存在，请问什么时候提醒您</string><!--todo 需要明天找产品确定一下 -->
-    <string name="too_many_time">提醒时间太多啦，请重新描述</string><!--todo 问产品string，如果同一时间创建太多，具体是根据什么样的标准来判断-->
-    <string name="old_time">对不起，创建时间已过期，请问什么时候提醒您</string><!--todo 问产品，不能创建今天之前的提醒-->
-    <string name="no_support_out_time">暂不支持跨时间段提醒，请问什么时候提醒您</string><!--todo 问产品，不清楚业务-->
-
-    <string name="cannot_search_history">"抱歉，暂不支持历史日程的查询噢"</string>
-    <string name="no_search">%s还没有日程安排</string>
-    <string name="one_search">%s有1条日程安排，是%s</string>
-    <string name="more_search">%s有%d条日程安排，最近的一条是%s</string>
-    <string name="no_content">没有内容</string>
-    <string name="calendar_hint_quick">您有一条日程提醒%s</string>
-    <string name="send_to_car_title">是否现在导航去%s</string>
-    <string name="send_to_car_content">来自手机端的导航推送</string>
-    <string name="go_to_map">导航</string>
-    <string name="send_to_car_msg">SendToCar消息</string>
-    <string name="send_to_car_item">您的爱车接收到一条TSP平台发送的导航消息</string>
-
+    <string name="tv_edit">编辑</string>
+    <string name="tv_cancel_edit">取消编辑</string>
+    <string name="no_msg">还没有任何消息</string>
 
 </resources>

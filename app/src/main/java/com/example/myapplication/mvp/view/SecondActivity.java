@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.mvp.view;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -11,10 +11,12 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.myapplication.base.BaseActivity;
+import com.example.myapplication.R;
 import com.example.myapplication.adapter.MsgCenterAdapter;
 import com.example.myapplication.bean.MsgCenterBean;
-import com.example.myapplication.contact.IMainContact;
-import com.example.myapplication.presenter.MainPresenter;
+import com.example.myapplication.mvp.contact.IMainContact;
+import com.example.myapplication.mvp.presenter.MainPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -78,7 +80,7 @@ public class SecondActivity extends BaseActivity<MainPresenter> implements IMain
                 mTvEdit.setVisibility(View.VISIBLE);
                 mTvSelectAll.setVisibility(View.GONE);
                 mTvDelete.setVisibility(View.GONE);
-                mTvBack.setText(getString(R.string.message_center));
+                mTvBack.setText(getString(R.string.app_name));
                 mMsgCenterAdapter.setAllCheck(false);
                 mMsgCenterAdapter.setIsEnableEdit(false);
                 return;
@@ -184,10 +186,10 @@ public class SecondActivity extends BaseActivity<MainPresenter> implements IMain
         mRecyclerView.setVisibility(View.GONE);
         mTvEdit.setVisibility(View.GONE);
         mTvSelectAll.setVisibility(View.GONE);
-        mTvSelectAll.setText(getString(R.string.select_all));
+        mTvSelectAll.setText(getString(R.string.tv_select_all));
         mTvSelect = mTvSelectAll.getText().toString();
         mTvDelete.setVisibility(View.GONE);
-        mTvDelete.setText(getString(R.string.delete));
+        mTvDelete.setText(getString(R.string.tv_delete));
         mTvDelete.setEnabled(false);
         mTvDelete.setTextColor(getResources().getColor(R.color.tv_delete_nothing));
 

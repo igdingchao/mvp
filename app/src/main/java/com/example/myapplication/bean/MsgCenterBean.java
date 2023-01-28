@@ -15,18 +15,6 @@ public class MsgCenterBean implements Comparable<MsgCenterBean> {
     public MsgCenterBean() {
     }
 
-    public MsgCenterBean(Long id, boolean isSelected, int mMsgType, int mPriority, int mIcon, String mTitle, String mContent, long time, String msgFelling) {
-        this.id = id;
-        this.isSelected = isSelected;
-        this.mMsgType = mMsgType;
-        this.mPriority = mPriority;
-        this.mIcon = mIcon;
-        this.mTitle = mTitle;
-        this.mContent = mContent;
-        this.time = time;
-        this.msgFelling = msgFelling;
-    }
-
     @Override
     public int compareTo(MsgCenterBean msgCenterBean) {
         int result = msgCenterBean.getPriority() - this.getPriority();//先按照优先级来降序，因为5是放在最前面的

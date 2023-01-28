@@ -1,4 +1,4 @@
-package com.example.myapplication.fragment;
+package com.example.myapplication.base;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -9,9 +9,6 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
-import com.example.myapplication.contact.MvpProxyImpl;
-import com.example.myapplication.presenter.IBasePresenter;
 
 public abstract class BaseFragment<P extends IBasePresenter> extends Fragment {
 

@@ -1,6 +1,4 @@
-package com.example.myapplication.contact;
-
-import com.example.myapplication.presenter.IBasePresenter;
+package com.example.myapplication.base;
 
 import java.lang.ref.WeakReference;
 import java.lang.reflect.ParameterizedType;
