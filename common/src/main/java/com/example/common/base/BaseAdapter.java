@@ -1,4 +1,4 @@
-package com.example.myapplication.base;
+package com.example.common.base;
 
 import android.content.Context;
 import android.util.SparseArray;

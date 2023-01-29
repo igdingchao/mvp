@@ -10,9 +10,7 @@ import androidx.fragment.app.Fragment;
 
 import java.util.HashMap;
 
-//权限适配，去打开不同的设置界面，百度上是可以搜到对应厂商的页面的，直接copy就行了，所以我这里，是不需要用到这个字段，去toast这个字段的
-//因为一般的用户，看到了这个字段，也不知道怎么办。所以最好的办法就是去跳转页面了，之后有机会的话，再完善一下自己的这个权限库。
-//百度搜索  Android  获取各个厂商的设置界面
+//todo 还需要完善的是，用户禁止后，跳转到设置界面(工作量比较大，非必须，则不做)
 public class PermissionFragment extends Fragment {
     private static final int REQUEST_CODE = 1;
     HashMap mPermissionMap = new HashMap<String, String>();
@@ -51,8 +49,10 @@ public class PermissionFragment extends Fragment {
                 }
             }
         }
-        boolean allGrant = mDenied.isEmpty();//不包含权限字段，代表全部通过
-        mPermissionCallBack.requestResult(allGrant, "请打开" + mDenied);
+        //不为空，就代表有的权限没给
+        if (!mDenied.isEmpty()) {
+            mPermissionCallBack.requestResult(mDenied + "已被禁用，请打开相应权限");
+        }
         mDenied = "";
     }
 }

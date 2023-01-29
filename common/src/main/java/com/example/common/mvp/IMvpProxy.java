@@ -1,4 +1,4 @@
-package com.example.myapplication.base;
+package com.example.common.mvp;
 
 public interface IMvpProxy {
     void bindPresenter();

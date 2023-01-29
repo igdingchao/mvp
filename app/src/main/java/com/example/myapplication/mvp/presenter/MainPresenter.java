@@ -2,7 +2,7 @@ package com.example.myapplication.mvp.presenter;
 
 import com.example.myapplication.mvp.model.MainModel;
 import com.example.myapplication.mvp.contact.IMainContact;
-import com.example.myapplication.base.BasePresenter;
+import com.example.common.mvp.BasePresenter;
 
 public class MainPresenter extends BasePresenter<IMainContact.IMainView, MainModel> implements IMainContact.IMainPresenter {
 

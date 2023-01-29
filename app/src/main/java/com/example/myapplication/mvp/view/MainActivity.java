@@ -7,10 +7,10 @@ import android.widget.Toast;
 
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.myapplication.base.BaseActivity;
+import com.example.common.base.BaseActivity;
 import com.example.myapplication.R;
-import com.example.myapplication.mvp.contact.IMainContact;
 import com.example.myapplication.fragment.MainFragment;
+import com.example.myapplication.mvp.contact.IMainContact;
 import com.example.myapplication.mvp.presenter.MainPresenter;
 
 //todo 加入一个banner和recycleview的网络请求进来试试，而且还需要结合代码模板，来自动生成我们所需要的mvp
@@ -29,6 +29,8 @@ public class MainActivity extends BaseActivity<MainPresenter> implements View.On
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.add(R.id.fl_content, mainFragment);
         ft.commit();
+
+
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.example.myapplication.base;
+package com.example.common.mvp;
 
 import java.lang.ref.WeakReference;
 import java.lang.reflect.ParameterizedType;

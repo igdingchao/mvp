@@ -7,7 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.myapplication.R;
-import com.example.myapplication.base.BaseAdapter;
+import com.example.common.base.BaseAdapter;
 import com.example.myapplication.bean.MsgCenterBean;
 import com.example.myapplication.view.SlideItemView;
 

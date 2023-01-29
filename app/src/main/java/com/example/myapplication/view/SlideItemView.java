@@ -11,7 +11,7 @@ import android.widget.Scroller;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.example.myapplication.utils.DensityUtil;
+import com.example.common.utils.DensityUtil;
 
 public class SlideItemView extends FrameLayout {
     private static final String TAG = "SlideItemView";

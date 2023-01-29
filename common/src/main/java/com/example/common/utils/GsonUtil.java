@@ -1,6 +1,7 @@
-package com.example.myapplication.utils;
+package com.example.common.utils;
 
 import com.google.gson.Gson;
+
 import java.lang.ref.WeakReference;
 
 public class GsonUtil {
@@ -22,12 +23,5 @@ public class GsonUtil {
             //不用弱引用也可以，但是考虑到性能，如果没做网络请求，那么长期持有gson是耗性能的。
         }
         return weakReference.get();
-    }
-
-    public static Gson getInstance() {
-        if (gson == null) {
-            gson = new Gson();
-        }
-        return gson;
     }
 }

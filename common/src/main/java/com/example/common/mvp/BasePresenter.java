@@ -1,4 +1,4 @@
-package com.example.myapplication.base;
+package com.example.common.mvp;
 
 public abstract class BasePresenter<V, M> implements IBasePresenter<V> {
 

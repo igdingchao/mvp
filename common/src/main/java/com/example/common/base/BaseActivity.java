@@ -1,10 +1,13 @@
-package com.example.myapplication.base;
+package com.example.common.base;
 
 import android.os.Bundle;
 import android.util.Log;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.common.mvp.IBasePresenter;
+import com.example.common.mvp.MvpProxyImpl;
 
 public abstract class BaseActivity<P extends IBasePresenter> extends AppCompatActivity {
     private static final String TAG = BaseActivity.class.getSimpleName();

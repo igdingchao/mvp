@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.myapplication.base.BaseActivity;
+import com.example.common.base.BaseActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.adapter.MsgCenterAdapter;
 import com.example.myapplication.bean.MsgCenterBean;
@@ -21,7 +21,8 @@ import com.example.myapplication.mvp.presenter.MainPresenter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SecondActivity extends BaseActivity<MainPresenter> implements IMainContact.IMainView, MsgCenterAdapter.TotalCheck {
+//todo 购物车代码，模仿尚学堂的购物车，进行重构，主要是思考，他是怎么设计的，而不是直接拿了代码就写
+public class SecondActivity extends BaseActivity<MainPresenter> implements IMainContact.IMainFView, MsgCenterAdapter.TotalCheck {
 
     public static final String TAG = SecondActivity.class.getSimpleName();
     TextView mTvSelectAll;
@@ -203,10 +204,5 @@ public class SecondActivity extends BaseActivity<MainPresenter> implements IMain
     @Override
     protected int initView() {
         return R.layout.activity_second;
-    }
-
-    @Override
-    public void showData(String s1) {
-
     }
 }
